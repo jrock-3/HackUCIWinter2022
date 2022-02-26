@@ -12,6 +12,16 @@ def index():
     return jsonify({'message': 'Hey, everything works!!'})
 
 # Access this endpoint through: http://localhost:5000/gameInfo/<id>
+@app.route('/gameId')
+def gameId():
+    url = "http://api.steampowered.com/ISteamApps/GetAppList/v0002/?key=STEAMKEY&format=json"
+
+    response = requests.request(
+        "GET", url)
+
+    return jsonify(response.json())
+
+# Access this endpoint through: http://localhost:5000/gameInfo/<id>
 @app.route('/gameInfo/<id>')
 def gameInfo(id):
     url = "https://store.steampowered.com/api/appdetails?appids=" + id
