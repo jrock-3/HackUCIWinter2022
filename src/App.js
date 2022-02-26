@@ -4,8 +4,19 @@ import GameCard from './components/GameCard.js';
 function App() {
   return (
     <div>
-      <div>
-        <GameCard name="hi" />
+      <div id="game-card-display">
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        
       </div>
     </div>
   );

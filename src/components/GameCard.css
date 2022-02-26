@@ -1,0 +1,17 @@
+#game-card {
+    border-radius: 25px;
+    border: 2px solid gray;
+    padding: 20px;
+    width: 20vw;
+    height: 50vh;
+    margin: 5px;
+}
+
+#game-name {
+    text-align: center;
+    font-size: 30px;
+}
+
+#game-img {
+    align: center;
+}
