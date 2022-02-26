@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
-function Home() {
+function Home(id) {
 
     const [gameData, setGameData] = useState("")
     const [loading, setLoading] = useState(true)
 
 
     useEffect(async () => {        
-        let baseUrl = "https://eb15-169-234-30-181.ngrok.io"
+        let baseUrl = "http://7ddf-169-234-11-146.ngrok.io"; //https://localhost:5000/"
         //using tf2 as my base id rn. change with another id when finished.
-        let gameData_url = baseUrl + "/gameData/440"
+        let gameData_url = baseUrl + "/gameInfo/440"
         let gamePlayerCount_url = baseUrl + "/gamePlayerCount/440"
         let gameReviews_url = baseUrl + "/gameReviews/440"
         let gameNews_url = baseUrl + "/gameNews/440"
@@ -33,6 +33,7 @@ function Home() {
         const gameNewsResponse = await fetch(gameNews_url)
         const gameNewsJSON = await gameNewsResponse.json()
 
+        console.log(gameDataJSON)
 
     }, [])
 

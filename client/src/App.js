@@ -1,9 +1,11 @@
 import './App.css';
 import GameCard from './components/GameCard.js';
 import SearchGame from './components/Search_query.js';
+import Home from './Home.js';
 
 
 function App() {
+
   const gamecard_props = [{
     title: "Team Fortress 2",
     img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
@@ -16,6 +18,8 @@ function App() {
   ];
   return (
     <div>
+      <Home />
+      
       <div>
         <SearchGame />
       </div>
