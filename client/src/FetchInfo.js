@@ -8,13 +8,13 @@ function FetchInfo(props) {
 
 
   useEffect(() => {
-    let baseUrl = "http://03ff-169-234-11-146.ngrok.io";
+    let baseUrl = "http://9096-169-234-11-146.ngrok.io";
     let gameData_url = baseUrl + "/gameInfo/" + props.id;
     let gamePlayerCount_url = baseUrl + "/gamePlayerCount/" + props.id;
     let gameReviews_url = baseUrl + "/gameReviews/" + props.id;
     let gameNews_url = baseUrl + "/gameNews/" + props.id;
     
-    async function fetchData() {      
+    async function fetchData() {
       //const response = await fetch(url)
       //const data = await response.json()
       //console.log(data.message)

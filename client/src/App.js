@@ -3,7 +3,7 @@ import GameCard from './components/GameCard.js';
 import SearchGame from './components/Search_query.js';
 import FetchInfo from './FetchInfo.js';
 import { useState } from "react";
-import ReactDOM from "react-dom";
+import FetchIds from './FetchIds.js';
 
 
 function App() {
@@ -35,11 +35,17 @@ function App() {
     console.log(gamecard_props)
   })
   console.log(gamecard_props)
+
+  let x = FetchIds()
+  console.log(x)
   
   return (
     <div>
       <div>
         <SearchGame />
+      </div>
+      <div>
+        <button onClick={() => setProps(gamecard_props.concat(x))}>add</button>
       </div>
       <div id="game-card-display">
         {gamecard_props.map((gamecard_prop,index) => (
