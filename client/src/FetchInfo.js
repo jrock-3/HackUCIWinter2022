@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function FetchInfo(props) {
 
-  const [gameData, setGameData] = useState("")
-  const [loading, setLoading] = useState(true)
-  
+  // const [output, setGameData] = useState({})
   let output = {}
 
 
   useEffect(() => {
-    let baseUrl = "http://7ddf-169-234-11-146.ngrok.io";
+    let baseUrl = "http://03ff-169-234-11-146.ngrok.io";
     let gameData_url = baseUrl + "/gameInfo/" + props.id;
     let gamePlayerCount_url = baseUrl + "/gamePlayerCount/" + props.id;
     let gameReviews_url = baseUrl + "/gameReviews/" + props.id;
@@ -49,7 +48,8 @@ function FetchInfo(props) {
       output.neg_reviews = reviews.total_negative;
       output.news_link = news[0].url;
 
-      // console.log(output)
+      console.log(output)
+      // setGameData(output)
     }
     fetchData();
 
