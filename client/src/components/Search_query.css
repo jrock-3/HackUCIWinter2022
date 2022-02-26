@@ -1,0 +1,83 @@
+
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('outline_search_black_24dp.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  margin:0;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  padding-inline-start: 0px;
+  z-index: 1;
+}
+
+.dropdown-content ul{
+  background: dodgerblue;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  padding: 0;
+  padding-inline-start: 0px;
+}
+
+
+.dropdown-content li{
+  color: #fff;
+  background: dodgerblue;
+  display: block;
+  float: left;
+  width:100%;
+  padding: 1rem;
+  margin-left: 0;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.dropdown-content li a {
+  color: #fff;
+}
+
+.dropdown-content li:hover {
+  background: blue;
+  cursor: pointer;
+}
+
+.dropdown-content ul li ul {
+  background: royalblue;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+}
+
+.dropdown-content ul li:hover > ul,
+.dropdown-content ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.dropdown-content ul li ul li {
+  clear: both;
+  width: 100%;
+}
