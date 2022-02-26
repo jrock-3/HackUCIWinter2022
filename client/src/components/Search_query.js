@@ -25,7 +25,7 @@ function SearchGame(props){
         }else{ 
             setGamelist([{item:"No game found"}])
         }
-        console.log(possibleGames)
+        // console.log(possibleGames)
         setSearch('')
     }
 
