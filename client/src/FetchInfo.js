@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-// import { useState } from "react";
+import { useState } from "react";
 
 function FetchInfo(props) {
 
-  // const [gameData, setGameData] = useState("")
-  // const [loading, setLoading] = useState(true)
-  
+  // const [output, setGameData] = useState({})
   let output = {}
 
 
@@ -51,6 +49,7 @@ function FetchInfo(props) {
       output.news_link = news[0].url;
 
       console.log(output)
+      // setGameData(output)
     }
     fetchData();
 
