@@ -3,7 +3,10 @@ import Fuse from 'fuse.js';
 import "./Search_query.css";
 
 
+//SET THIS TO FETCHID OUTPUT
 const games_list=["counter strike:global offensive","CS"];
+
+
 const options={};
 const fuse= new Fuse(games_list,options)
 
@@ -16,7 +19,7 @@ function SearchGame(props){
         setSearch(event.target.value)
     }
     const handleSubmit=(event)=>{
-        //SsetGamelist([])
+        //setGamelist([])
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -39,15 +42,15 @@ function SearchGame(props){
         {console.log(userGames)}
     }
 
-     function gameDropdown(){
+    function gameDropdown(){
         return <ul  className="dropdown-content">
             {possibleGames.map((posGame)=>{
             if (posGame.item!="No game found"){
                 return <li key= {posGame.item} id={posGame.item} onClick={handleAdd}>{posGame.item}</li>
             }else{
-                 return <li key={posGame.item}>No game Found</li>
+                    return <li key={posGame.item}>No game Found</li>
             }}) }</ul>
-        }
+    }
 
 
     return <div className="dropdown">
