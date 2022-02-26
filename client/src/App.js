@@ -35,7 +35,7 @@ function App() {
         {gamecard_props.map(gamecard_prop => (
           <GameCard {...gamecard_prop} />
         ))}
-      </div>
+        </div>
     </div>
   );
 }

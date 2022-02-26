@@ -7,8 +7,8 @@ function GameCard(props) {
   console.log(percent_neg + " " + percent_pos)
   return (
     <div id="game-card">
-      <div id="game-name">{props.title}</div>
       <img src={props.img} id="game-img" alt={"Image of " + props.title} />
+      <div id="game-name">{props.title}</div>
       <div id="dev-name">Developer: {props.dev_name}</div>
       <div id="game-player-count">Current Number of Players: {props.total_players} </div>
       {/* <div id="game-ratings">
