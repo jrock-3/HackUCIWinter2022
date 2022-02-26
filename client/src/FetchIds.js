@@ -9,7 +9,7 @@ function FetchIds() {
 
   useEffect(() => {
     let baseUrl = "http://9096-169-234-11-146.ngrok.io";
-    let gameIds_url = baseUrl + "/gameId/";
+    let gameIds_url = baseUrl + "/gameId";
     
     async function fetchData() {
       //const response = await fetch(url)

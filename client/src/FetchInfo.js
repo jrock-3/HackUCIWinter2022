@@ -47,6 +47,7 @@ function FetchInfo(props) {
       output.pos_reviews = reviews.total_positive;
       output.neg_reviews = reviews.total_negative;
       output.news_link = news[0].url;
+      output.id = props.id;
 
       console.log(output)
       // setGameData(output)
