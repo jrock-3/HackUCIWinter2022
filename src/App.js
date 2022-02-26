@@ -9,6 +9,7 @@ function App() {
     img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
     dev_name: "Valve",
     total_players: 73612,
+    percent_pos: 50,
     news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
   }
   return (
