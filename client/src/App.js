@@ -6,11 +6,7 @@ import FetchInfo from './FetchInfo.js';
 
 function App() {
 
-  const fetch_props = {
-    id: 440
-  }
-  
-  const gamecard_props = [
+  let gamecard_props = [
   {
     title: "Team Fortress 2",
     img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
@@ -20,20 +16,25 @@ function App() {
     neg_reviews: 836,
     news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
   },
-  FetchInfo(fetch_props),
+  FetchInfo({id:440}),
   ];
 
   console.log(gamecard_props)
-
-  // const x = await FetchInfo({id:440});
+  async function getInfo(_id) {
+    return await FetchInfo({id:_id});
+  }
+  let tf2Info = getInfo(440);
+  console.log("tf2 " + tf2Info)
+  
   return (
     <div>
       <div>
         <SearchGame />
       </div>
       <div id="game-card-display">
-        {gamecard_props.map(gamecard_prop => (
-          <GameCard {...gamecard_prop} />
+        <GameCard {...tf2Info} />
+        {gamecard_props.map((gamecard_prop,index) => (
+          <GameCard {...gamecard_prop} key={index} />
         ))}
       </div>
     </div>

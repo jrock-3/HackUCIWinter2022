@@ -1,4 +1,4 @@
-#game-card {
+.game-card {
     border-radius: 25px;
     border: 2px solid gray;
     padding: 20px;
@@ -8,22 +8,22 @@
     background-color: darkgray;
 }
 
-#game-name {
+.game-name {
     text-align: center;
     font-size: 30px;
 }
 
-#game-img {
+.game-img {
     max-width: 100%;
     height: auto;
 }
 
-#dev-name {
+.dev-name {
     text-align: center;
     font-size: 20px;
 }
 
-#game-player-count {
+.game-player-count {
     text-align: center;
     font-size: 20px;
 }
@@ -32,23 +32,23 @@
     
 } */
 
-#rating-box1,
-#rating-box2 {
+.rating-box1,
+.rating-box2 {
     float: left;
     height: 30px;
 }
 
-#rating-box1 {
+.rating-box1 {
     background-color: green;
     text-align: left;
 }
 
-#rating-box2 {
+.rating-box2 {
     background-color: red;
     text-align: right;
 }
 
-#game-news-link {
+.game-news-link {
     text-align: center;
     font-size: 20px;
 }
