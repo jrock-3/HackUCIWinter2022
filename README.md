@@ -1,3 +1,20 @@
+# Running this Application's Server Side
+set FLASK_APP=app.py
+
+flask run
+
+This will run the flask application.
+Once this is done we will run the ngrok application.
+
+./ngrok http 5000
+
+Copy the link and paste it into the Home.js baseUrl part of the project.
+
+This link will last for two hours.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
