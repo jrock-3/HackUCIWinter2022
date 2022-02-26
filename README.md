@@ -1,5 +1,6 @@
 # Running this Application's Server Side
 set FLASK_APP=app.py
+
 flask run
 
 This will run the flask application.
