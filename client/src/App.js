@@ -20,6 +20,11 @@ function App() {
     news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
   }
 
+  async function handleClick(props) {
+    const x = await FetchInfo(props)
+    setProps(gamecard_props.concat(x))
+  }
+
   // let x = FetchIds();
   // console.log(x);
   
@@ -31,14 +36,14 @@ function App() {
         <SearchGame />
       </div>
       <div>
-        <form action={() => setProps(gamecard_props.concat({}))}>
-          <input type="text"></input>
+        <form>
+          <input type="text" id="test" />
         </form>
-        <button onClick={() => setProps(gamecard_props)}>Click</button>
-        {/* {() => setProps(gamecard_props.concat({}))} */}
+        <button onClick={() => handleClick({id: document.getElementById('test').value})}>Click</button>
       </div>
       <div id="game-card-display">
         {gamecard_props.map((gamecard_prop,index) => (
+          //add "loading..." here vvv
           <GameCard {...gamecard_prop} key={index} />
         ))}
       </div>
