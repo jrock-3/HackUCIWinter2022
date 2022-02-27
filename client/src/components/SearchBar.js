@@ -4,10 +4,9 @@ import "./SearchBar.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
-// import date from 'date';
-
 
 const games_list= Object.keys(gameids);
+console.log(gameids)
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
@@ -18,7 +17,6 @@ function SearchBar(props){
 
     const [myInput, setMyInput] = useState('');
 	const [myAPIResult, setMyAPIResult] = useState([]);
-    // const [currTime, setCurrTime] = useState(Date())
 
     useEffect(() => {
 		const fetchData = async () => {
@@ -32,15 +30,15 @@ function SearchBar(props){
         if(myInput !== '') {
             fetchData()
             .catch(console.error);
-        }
+        } 
 	}, [myInput]);
 
 
-    const handleGame= async (event)=>{
+    const handleGame = async (event)=>{
         setSearch(event.target.value)
-        await handleInput(event)
     }
-    const handleInput = (event) => {
+    const handleSubmit = (event) => {
+        // console.log('finding')
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -52,21 +50,30 @@ function SearchBar(props){
         }
         // console.log(possibleGames)
     }
-    const handleSubmit=(event)=>{
-        handleInput(event)
-        setSearch('')
-    }
 
     const handleAdd= async (event) => {
         event.preventDefault()
+        console.log(userGames)
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
             setMyInput(gameids[event.target.id]);
         }
         setGamelist([])
+        setSearch('')
         // console.log(userGames)
     }
+
+    const handleRemove= (event)=>{
+        console.log(event.target.className)
+        console.log(gameids[event.target.className])
+        setGames(userGames.filter((element)=>{
+            console.log(element)
+            return element !== gameids[event.target.className]}))
+        setMyAPIResult(myAPIResult.filter((element)=>{return event.target.className !==element.title }))
+        console.log(userGames)
+    }
+
 
      function gameDropdown(){
         return <ul align='center'  className="dropdown-content">
@@ -78,6 +85,7 @@ function SearchBar(props){
             }}) }</ul>
     }
 
+<<<<<<< HEAD
     console.log(myAPIResult)
     return <div className = "website">
                 <div className="title-and-icon">
@@ -110,6 +118,32 @@ function SearchBar(props){
                     ))}
                 </div>
             </div>
+=======
+    // console.log(myAPIResult)
+    return <div className="search-box">
+        <h1>Search for games</h1>
+        
+        <form autoComplete="off" onSubmit={handleSubmit}>
+            <div align='center' className="dropdown">
+                <i className="material-icons">search</i>
+                <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
+            </div>
+        </form>
+
+        <div>
+            {gameDropdown()}
+        </div>
+        
+        <div id="game-card-display">
+            {console.log(myAPIResult)}
+        {/* <GameCard {...thing} /> */}
+            {myAPIResult.map((gamecard_prop,index) => (
+            //add "loading..." here vvv
+            <GameCard {...gamecard_prop} key={index} onClick={handleRemove} />
+            ))}
+        </div>
+    </div>
+>>>>>>> 3be45508f4d6555644e48e6b4546c3ad9d0d8306
 }
 
 export default SearchBar;
