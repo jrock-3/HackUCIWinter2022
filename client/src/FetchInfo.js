@@ -2,7 +2,7 @@ async function FetchInfo(props) {
 
   let output = {}
 
-  let baseUrl = "http://686a-169-234-21-204.ngrok.io";
+  let baseUrl = "http://127.0.0.1:5000/";
   let gameData_url = baseUrl + "/gameInfo/" + props.id;
   let gamePlayerCount_url = baseUrl + "/gamePlayerCount/" + props.id;
   let gameReviews_url = baseUrl + "/gameReviews/" + props.id;

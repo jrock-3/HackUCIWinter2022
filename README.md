@@ -1,3 +1,13 @@
+# Steam Game Compiler
+
+
+Authors:
+Tanush Goel
+Kevin Liu
+Jake Gerber
+Justin Liao
+
+
 # Running this Application's Server Side
 Download flask to run the backend Then  
 set FLASK_APP=app.py
@@ -5,6 +15,11 @@ set FLASK_APP=app.py
 flask run
 
 This will run the flask application.
+
+Then navigate to the client folder and do
+npm start
+
+# (Optional)
 Once this is done we will run the ngrok application.
 
 For mac:  
@@ -16,8 +31,6 @@ For windows (powershell/cmd):
 Copy the link in the ngrok terminal and paste it into the FetchInfo.js in client/src part of the project.
 
 This link will last for two hours.
-
-Then navigate to the client folder and do npm start
 
 # Getting Started with Create React App
 
