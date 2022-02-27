@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import "./Search_query.css";
+import GameCard from './GameCard.js';
+import gameids from '../new_json.json';
+import FetchInfo from '../FetchInfo.js';
 
 
-const games_list=["counter strike:global offensive","CS", "a"];
-const options={};
+const games_list= Object.keys(gameids);
+const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
 function SearchGame(props){
@@ -12,11 +15,29 @@ function SearchGame(props){
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
 
+    const [myInput, setMyInput] = useState('');
+	const [myAPIResult, setMyAPIResult] = useState([]);
+
+    useEffect(() => {
+		const fetchData = async () => {
+			// get data here
+			const _info = await FetchInfo({id:myInput});
+
+		    // set state with the result
+		    setMyAPIResult([...myAPIResult,_info]);
+		}
+	    // call the function, catch errors
+        if(myInput !== '') {
+            fetchData()
+            .catch(console.error);
+        }
+	}, [myInput]);
+
+
     const handleGame=(event)=>{
         setSearch(event.target.value)
     }
     const handleSubmit=(event)=>{
-        //setGamelist([])
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -30,13 +51,15 @@ function SearchGame(props){
         setSearch('')
     }
 
-    const handleAdd=(event)=>{
+    const handleAdd= async (event) => {
         event.preventDefault()
-        {console.log(event.target.id)}
+        // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
-            setGames([...userGames,event.target.id])
+            setGames([...userGames,gameids[event.target.id]])
+            setMyInput(gameids[event.target.id]);
         }
-        {console.log(userGames)}
+        setGamelist([])
+        // console.log(userGames)
     }
 
      function gameDropdown(){
@@ -49,7 +72,7 @@ function SearchGame(props){
             }}) }</ul>
     }
 
-
+    console.log(myAPIResult)
     return <div className="search-box">
         <h1>Steam Game Compiler</h1>
         
@@ -61,13 +84,11 @@ function SearchGame(props){
         </form>
         {gameDropdown()}
         
-        <div className='games'>
-            {console.log(userGames)}
-            {userGames.map((usGame)=>
-                <p key={usGame}>{usGame}</p>
-            )}
+        <div id="game-card-display">
+            {myAPIResult.map((gamecard_prop,index) => (
+            <GameCard {...gamecard_prop} key={index} />
+            ))}
         </div>
-
     </div>
 }
 

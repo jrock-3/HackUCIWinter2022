@@ -1,19 +1,32 @@
+
+
+
 .game-card {
     border-radius: 25px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
     width: 22vw;
-    height: 58vh;
+    height: auto;
     margin: 5%;
     background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column;
     transition: transform .2s; /* Animation */
+    position:relative
 }
 
 .bottom-card {
     padding-left: 5%;
 }
 
+#delete-button {
+    position: absolute;
+    top: 5;
+    right: 0;
+    width: 10%;
+    margin-right: 3%;
+    margin-top: 3%;
+
+}
 
 
 
@@ -44,14 +57,14 @@
 .dev-name {
     font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 120%;
     order: 2;
 }
 
 .game-player-count {
     font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 120%;
     order: 3;
 }
 
@@ -108,5 +121,27 @@
 
 .game-news-link {
     text-align: center;
-    font-size: 20px;
+    font-size: 120%;
+}
+
+@media screen and (max-width: 600px) {
+    .game-name{
+        font-size: 12px;
+    }
+    .dev-name{
+        font-size: 10px;
+    }
+    .game-player-count {
+        font-size: 10px;
+    }
+    .game-player-count {
+        font-size: 10px;
+    }
+    .rating-box{
+        font-size: 10px;
+    }
+    .ratings{
+        font-size: 10px;
+    }
+
 }

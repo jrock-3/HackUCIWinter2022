@@ -1,4 +1,4 @@
-
+//NOT USED RIGHT NOW
 async function FetchIds() {
 fetch('../server/new_json.json',{
         headers : { 

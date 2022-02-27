@@ -11,6 +11,7 @@ CORS(app)
 def index():
     return jsonify({'message': 'Hey, everything works!!'})
 
+# NOT BEING USED RIGHT NOW
 # Access this endpoint through: http://localhost:5000/gameId/
 @app.route('/gameId')
 def gameId():
