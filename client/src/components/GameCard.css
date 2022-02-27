@@ -8,12 +8,22 @@
     display: flex;
     flex-direction: column;
     transition: transform .2s; /* Animation */
+    position:relative
 }
 
 .bottom-card {
     padding: 5%;
 }
 
+#delete-button {
+    position: absolute;
+    top: 5;
+    right: 0;
+    width: 10%;
+    margin-right: 3%;
+    margin-top: 3%;
+
+}
 
 
 

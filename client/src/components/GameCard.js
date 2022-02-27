@@ -1,4 +1,5 @@
 import './GameCard.css'
+import deleteIcon from '../images/deleteIcon.png'
 
 function GameCard(props) {
   const x = props.pos_reviews / (props.pos_reviews + props.neg_reviews) * 100
@@ -8,6 +9,7 @@ function GameCard(props) {
   return (
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
+      <img src = {deleteIcon} id="delete-button" />
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
@@ -21,8 +23,8 @@ function GameCard(props) {
           <div className="rating-box2" style={{width: percent_neg + '%'}}></div>
         </div>
         <div className="ratings">
-          <p>Positive Ratings: {percent_pos+"%"}</p>
-          <p>Negative Ratings: {percent_neg+"%"}</p>
+          <p>Positive Ratings:<br />{percent_pos+"%"}</p>
+          <p>Negative Ratings:<br />{percent_neg+"%"}</p>
         </div>
       </div>
       {/* <a href={props.news_link}><p className="game-news-link">News</p></a> */}
