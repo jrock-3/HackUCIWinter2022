@@ -125,11 +125,6 @@ function SearchBar(props){
                         {gameDropdown()}
                     </div>
 
-<<<<<<< HEAD
-                    <p>test</p>
-
-=======
->>>>>>> 423fc6e497c14e0013cec0d989b44f4ce980a3ff
                 </div>
 
                 
