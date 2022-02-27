@@ -4,7 +4,7 @@ import "./SearchBar.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
-import alphabetIcon from '../images/alphabetIcon.png';
+import alphabetIcon from '../images/alphabetIcon.jpg';
 import ratingIcon from '../images/ratingIcon.png';
 
 
