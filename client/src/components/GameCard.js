@@ -10,7 +10,7 @@ function GameCard(props) {
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
       <img src = {deleteIcon} id="delete-button" onClick={props.onClick} className={props.title} alt="Delete Button" />
-      <a href={props.news_link} target="_blank"><img src={newsIcon} id="news-image" alt="News Button" /></a>
+      <a href={props.news_link} target="_blank"><img src={newsIcon} id="news-button" alt="News Button" /></a>
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
