@@ -17,7 +17,28 @@ function SearchGame(props){
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
 
-    const [gamecard_props, setProps] = useState([])
+    //!!!!!!!!!!!!!!!!!!!!!
+
+    const [myInput, setMyInput] = useState('');
+	const [myAPIResult, setMyAPIResult] = useState([]);
+
+    useEffect(() => {
+		const fetchData = async () => {
+			// get data here
+			const _info = await FetchInfo({id:myInput});
+            const _json = await _info.json();
+
+		    // set state with the result
+		    setMyAPIResult(...myAPIResult,_json);
+		}
+	    // call the function, catch errors
+        if(myInput !== '') {
+            fetchData()
+            .catch(console.error);
+        }
+	}, [myAPIResult, myInput]);
+
+    //!!!!!!!!!!!!!!!!!!!!!
 
     let thing = {
         title: "Team Fortress 2",
@@ -53,10 +74,7 @@ function SearchGame(props){
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
-            // handleClick({id:gameids[event.target.id]})
-            const x = await FetchInfo({id:gameids[event.target.id]})
-            setProps(gamecard_props.concat(x))
-            console.log(x)
+            setMyInput(gameids[event.target.id]);
         }
         choices = userGames;
         setGamelist([])
@@ -93,8 +111,8 @@ function SearchGame(props){
             )}
         </div> */}
         <div id="game-card-display">
-        <GameCard {...thing} />
-            {gamecard_props.map((gamecard_prop,index) => (
+        {/* <GameCard {...thing} /> */}
+            {myAPIResult.map((gamecard_prop,index) => (
             //add "loading..." here vvv
             <GameCard {...gamecard_prop} key={index} />
             ))}
