@@ -46,7 +46,7 @@ function App() {
           //add "loading..." here vvv
           <GameCard {...gamecard_prop} key={index} />
         ))}
-      </div>
+        </div>
     </div>
   );
 }
