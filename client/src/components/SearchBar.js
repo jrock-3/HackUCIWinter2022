@@ -34,7 +34,9 @@ function SearchBar(props){
             fetchData()
             .catch(console.error);
         } 
-	}, [myInput]);
+	}, [myInput, setMyAPIResult]);
+
+
 
 
     const handleGame = async (event)=>{
@@ -60,22 +62,39 @@ function SearchBar(props){
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
+            
             setMyInput(gameids[event.target.id]);
         }
         setGamelist([])
         setSearch('')
-        // console.log(userGames)
+        
+        console.log(userGames)
     }
 
     const handleRemove= (event)=>{
         console.log(event.target.className)
         console.log(gameids[event.target.className])
+        setMyInput('');
+        setGames(userGames.filter((element)=>{
+            console.log(element)
+            return element !== gameids[event.target.className]}))
         setGames(userGames.filter((element)=>{
             console.log(element)
             return element !== gameids[event.target.className]}))
         setMyAPIResult(myAPIResult.filter((element)=>{return event.target.className !==element.title }))
         console.log(userGames)
     }
+
+    const sortAlphabetically = (event)=>{
+        setMyAPIResult([...myAPIResult].sort((a, b) => a.title.localeCompare(b.title)))
+    }
+
+    const sortRating = (event)=>{
+        console.log(myAPIResult)
+        setMyAPIResult([...myAPIResult].sort((a, b) => (b.pos_reviews/(b.pos_reviews + b.neg_reviews)) - (a.pos_reviews/(a.pos_reviews + a.neg_reviews))))
+
+    }
+
 
 
      function gameDropdown(){
@@ -89,6 +108,8 @@ function SearchBar(props){
     }
 
     console.log(myAPIResult)
+    console.log(userGames)
+    console.log(myInput)
     return <div className = "website">
                 <div className="title-and-icon">
                     <img id="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png" ></img>
@@ -117,8 +138,8 @@ function SearchBar(props){
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
-                    <img src={alphabetIcon} className="imageIcons"/>
-                    <img src={ratingIcon} className="imageIcons" />
+                    <img src={alphabetIcon} onClick={sortAlphabetically} className="imageIcons"/>
+                    <img src={ratingIcon} onClick={sortRating} className="imageIcons" />
 
 
                 </div>
