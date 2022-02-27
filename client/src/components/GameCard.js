@@ -9,16 +9,15 @@ function GameCard(props) {
   return (
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
-      <img src = {deleteIcon} id="delete-button" />
+      <img src = {deleteIcon} id="delete-button" onClick={props.onClick} className={props.title}/>
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
-        <div className="game-player-count">Current Number of Players: {props.total_players} </div>
+        <div className="game-player-count">Online Players: {props.total_players} </div>
         {/* <div id="game-ratings">
           put ratings here
         </div> */}
         <div className="rating-box">
-          <p className="rating-box-text">Ratings:</p>
           <div className="rating-box1" style={{width: percent_pos + "%"}}></div>
           <div className="rating-box2" style={{width: percent_neg + '%'}}></div>
         </div>

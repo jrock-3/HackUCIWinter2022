@@ -69,6 +69,12 @@ function SearchBar(props){
         // console.log(userGames)
     }
 
+    const handleRemove= (event)=>{
+        console.log(event.target.className)
+        setMyAPIResult(myAPIResult.filter((element)=>{return event.target.className !==element.title }))
+    }
+
+
      function gameDropdown(){
         return <ul align='center'  className="dropdown-content">
             {possibleGames.map((posGame)=>{
@@ -95,8 +101,11 @@ function SearchBar(props){
         </div>
         
         <div id="game-card-display">
+            {console.log(myAPIResult)}
+        {/* <GameCard {...thing} /> */}
             {myAPIResult.map((gamecard_prop,index) => (
-            <GameCard {...gamecard_prop} key={index} />
+            //add "loading..." here vvv
+            <GameCard {...gamecard_prop} key={index} onClick={handleRemove} />
             ))}
         </div>
     </div>
