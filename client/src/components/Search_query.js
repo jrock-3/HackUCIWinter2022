@@ -10,8 +10,6 @@ const games_list= Object.keys(gameids);//["counter strike:global offensive","CS"
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
-let choices = []
-
 function SearchGame(props){
     const [games, setSearch]=useState('')
     const [possibleGames, setGamelist]=useState([])
@@ -39,18 +37,6 @@ function SearchGame(props){
         }
 	}, [myInput]);
 
-    //!!!!!!!!!!!!!!!!!!!!!
-
-    let thing = {
-        title: "Team Fortress 2",
-        img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
-        dev_name: "Valve",
-        total_players: 73612,
-        pos_reviews: 23831,
-        neg_reviews: 836,
-        // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
-    }
-
 
     const handleGame=(event)=>{
         setSearch(event.target.value)
@@ -77,7 +63,6 @@ function SearchGame(props){
             setGames([...userGames,gameids[event.target.id]])
             setMyInput(gameids[event.target.id]);
         }
-        choices = userGames;
         setGamelist([])
         // console.log(userGames)
     }
@@ -104,52 +89,12 @@ function SearchGame(props){
         </form>
         {gameDropdown()}
         
-        {/* <div className='games'>
-            {console.log(userGames)}
-            {userGames.map((usGame)=>
-                // <GameCard {...} />
-                <p key={usGame}>{usGame}</p>
-            )}
-        </div> */}
         <div id="game-card-display">
-        {/* <GameCard {...thing} /> */}
             {myAPIResult.map((gamecard_prop,index) => (
-            //add "loading..." here vvv
             <GameCard {...gamecard_prop} key={index} />
             ))}
         </div>
     </div>
 }
 
-export let games = choices;
 export default SearchGame;
-
-/*
-import React, { useState, useEffect } from 'react';
-
-const Comp = () => {
-	const [myInput, setMyInput] = useState('');
-	const [myAPIResult, setMyAPIResult] = useState([]);
-	
-	useEffect(() => {
-		const fetchData = async () => {
-			// get data here
-			const json = await response.json();
-
-		    // set state with the result
-		    setMyAPIResult(json);
-		}
-	  // call the function, catch errors
-	  fetchData()
-	    .catch(console.error);
-	}, [myInput]);
-
-	const handleClick = () => {
-		setMyInput(// pass in data here);
-	}
-
-	return {
-		<button onClick={handleClick}> my button </button>
-	}
-}
-*/

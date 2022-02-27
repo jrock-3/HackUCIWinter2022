@@ -2,11 +2,11 @@ async function FetchInfo(props) {
 
   let output = {}
 
-  let baseUrl = "http://8763-169-234-11-146.ngrok.io";
+  let baseUrl = "http://0d39-169-234-11-146.ngrok.io";
   let gameData_url = baseUrl + "/gameInfo/" + props.id;
   let gamePlayerCount_url = baseUrl + "/gamePlayerCount/" + props.id;
   let gameReviews_url = baseUrl + "/gameReviews/" + props.id;
-  let gameNews_url = baseUrl + "/gameNews/" + props.id;
+  // let gameNews_url = baseUrl + "/gameNews/" + props.id;
   
   const gameDataResponse = await fetch(gameData_url);
   const gameDataJSON = await gameDataResponse.json();
