@@ -4,6 +4,9 @@ import "./SearchBar.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
+import alphabetIcon from '../images/alphabetIcon.png';
+import ratingIcon from '../images/ratingIcon.png';
+
 
 const games_list= Object.keys(gameids);
 console.log(gameids)
@@ -114,10 +117,19 @@ function SearchBar(props){
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
+                    <img src={alphabetIcon} className="imageIcons"/>
+                    <img src={ratingIcon} className="imageIcons" />
+
 
                     <div>
                         {gameDropdown()}
                     </div>
+
+<<<<<<< HEAD
+                    <p>test</p>
+
+=======
+>>>>>>> 423fc6e497c14e0013cec0d989b44f4ce980a3ff
                 </div>
 
                 
