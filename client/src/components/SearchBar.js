@@ -4,8 +4,6 @@ import "./SearchBar.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
-// import date from 'date';
-
 
 const games_list= Object.keys(gameids);
 const options={distance:50,findAllMatches:true,limit:5};
@@ -18,7 +16,6 @@ function SearchBar(props){
 
     const [myInput, setMyInput] = useState('');
 	const [myAPIResult, setMyAPIResult] = useState([]);
-    // const [currTime, setCurrTime] = useState(Date())
 
     useEffect(() => {
 		const fetchData = async () => {
@@ -36,11 +33,18 @@ function SearchBar(props){
 	}, [myInput]);
 
 
-    const handleGame= async (event)=>{
+    const handleGame = async (event)=>{
         setSearch(event.target.value)
-        await handleInput(event)
+        // const currTime = (new Date()).getTime()
+        // const x = 300;
+        // if(currTime - lastTime >= x) {
+        //     setLastTime(currTime)
+        //     handleInput(event)
+        // }
+        // setLastTime(currTime)
     }
-    const handleInput = (event) => {
+    const handleSubmit = (event) => {
+        // console.log('finding')
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -52,10 +56,6 @@ function SearchBar(props){
         }
         // console.log(possibleGames)
     }
-    const handleSubmit=(event)=>{
-        handleInput(event)
-        setSearch('')
-    }
 
     const handleAdd= async (event) => {
         event.preventDefault()
@@ -65,6 +65,7 @@ function SearchBar(props){
             setMyInput(gameids[event.target.id]);
         }
         setGamelist([])
+        setSearch('')
         // console.log(userGames)
     }
 
@@ -78,7 +79,7 @@ function SearchBar(props){
             }}) }</ul>
     }
 
-    console.log(myAPIResult)
+    // console.log(myAPIResult)
     return <div className="search-box">
         <h1>Search for games</h1>
         
