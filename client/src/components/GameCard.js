@@ -9,7 +9,7 @@ function GameCard(props) {
   return (
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
-      <img src = {deleteIcon} id="delete-button" onClick={props.onClick} className={props.title} alt="Delete Button" />
+      <img src = {deleteIcon} id="delete-button" onClick={props.handleRemove} className={props.title} alt="Delete Button" />
       <a href={props.news_link} target="_blank"><img src={newsIcon} id="news-button" alt="News Button" /></a>
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
@@ -20,7 +20,7 @@ function GameCard(props) {
           <div className="rating-box2" style={{width: percent_neg + '%'}}></div>
         </div>
 
-        <span class="left">Positive: {percent_pos+"%"}</span><span class="right">Negative: {percent_neg+"%"}</span>​
+        <span className="left">Positive: {percent_pos+"%"}</span><span className="right">Negative: {percent_neg+"%"}</span>​
       </div>
     </div>
   );
