@@ -4,8 +4,9 @@
 .search-box h1{
   text-align: center;
   font-size: 72px;
-  color: white;
-  -webkit-text-stroke: 3px black;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 3px 10px rgba(17, 19, 155, 0.445);
 }
 
 .search-box {
@@ -15,6 +16,7 @@
   display: flex;
   flex-direction: column;
   font-size: 16px;
+  background-color: #010222;
 }
 
 #myInput {
@@ -27,20 +29,37 @@
   border-bottom: 1px solid #ddd;
 }
 
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
 
 .dropdown i{
   transform: translateY(8px);
 }
 
-.dropdown input{
-  width: 25vw;;
-  height: 6vw;;
-  font-size: 20px;
-  text-align: center;
+.material-icons { 
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  height: 25%;
+  width: 7%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+
 }
 
-.dropdown-content {
-  font-size: 16px;
+
+.dropdown input{ /* search box */
+  width: 30vw;;
+  height: 3vw;;
+  font-size: 20px;
+  text-align: center;
+  border: 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+}
+
+.dropdown-content { /* box inside search bar*/
+  font-size: 20px;
   margin:0;
   align-items: center;
   background-color: #f6f6f6;
@@ -68,7 +87,7 @@
   background: purple;
   display: block;
   float: left;
-  width:100%;
+  width:30vw;
   padding: 1rem;
   margin-left: 0;
   position: relative;
@@ -81,15 +100,16 @@
 }
 
 .dropdown-content li:hover {
-  background: blue;
+  background: rgb(145, 145, 224);
   cursor: pointer;
 }
 
 .dropdown-content ul li ul {
-  background: royalblue;
+  background: rgb(80, 118, 231);
   visibility: hidden;
   opacity: 0;
   min-width: 5rem;
+  max-width: 30vw;;
   position: absolute;
   transition: all 0.5s ease;
   margin-top: 1rem;

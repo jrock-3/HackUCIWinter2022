@@ -51,7 +51,7 @@ function SearchGame(props){
 
 
     return <div className="search-box">
-        <h1>Search for games</h1>
+        <h1>Steam Game Compiler</h1>
         
         <form onSubmit={handleSubmit}>
             <div align='center' className="dropdown">
