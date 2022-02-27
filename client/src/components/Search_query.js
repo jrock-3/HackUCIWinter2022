@@ -6,7 +6,7 @@ import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
 
 
-const games_list= Object.keys(gameids);//["counter strike:global offensive","CS", "a"];
+const games_list= Object.keys(gameids);
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
@@ -15,8 +15,6 @@ function SearchGame(props){
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
 
-    //!!!!!!!!!!!!!!!!!!!!!
-
     const [myInput, setMyInput] = useState('');
 	const [myAPIResult, setMyAPIResult] = useState([]);
 
@@ -24,8 +22,6 @@ function SearchGame(props){
 		const fetchData = async () => {
 			// get data here
 			const _info = await FetchInfo({id:myInput});
-            // console.log(_info)
-            // const _json = await _info.json();
 
 		    // set state with the result
 		    setMyAPIResult([...myAPIResult,_info]);
@@ -42,7 +38,6 @@ function SearchGame(props){
         setSearch(event.target.value)
     }
     const handleSubmit=(event)=>{
-        //setGamelist([])
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
