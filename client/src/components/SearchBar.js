@@ -113,7 +113,7 @@ function SearchBar(props){
                 <div className="search-box">
                     <form autoComplete="off" onSubmit={handleSubmit}>
                         <div align='center' className="dropdown">
-                            <i className="material-icons">search</i>
+                            <button className="material-icons" onClick={handleSubmit} >search</button>
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
@@ -121,10 +121,10 @@ function SearchBar(props){
                     <img src={ratingIcon} className="imageIcons" />
 
 
-                    <div>
-                        {gameDropdown()}
-                    </div>
+                </div>
 
+                <div>
+                    {gameDropdown()}
                 </div>
 
                 
