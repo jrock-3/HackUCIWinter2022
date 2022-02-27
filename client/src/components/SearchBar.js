@@ -79,26 +79,37 @@ function SearchBar(props){
     }
 
     console.log(myAPIResult)
-    return <div className="search-box">
-        <h1>Steam Game Compiler</h1>
-        
-        <form autoComplete="off" onSubmit={handleSubmit}>
-            <div align='center' className="dropdown">
-                <i className="material-icons">search</i>
-                <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
-            </div>
-        </form>
+    return <div className = "website">
+                <div className="title-and-icon">
+                    <img id="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png" ></img>
+                    <h2 id="title">Steam Game Compiler</h2>
+                </div>
+                <div className="search-box">
+                    <form autoComplete="off" onSubmit={handleSubmit}>
+                        <div align='center' className="dropdown">
+                            <i className="material-icons">search</i>
+                            <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
+                        </div>
+                    </form>
 
-        <div>
-            {gameDropdown()}
-        </div>
-        
-        <div id="game-card-display">
-            {myAPIResult.map((gamecard_prop,index) => (
-            <GameCard {...gamecard_prop} key={index} />
-            ))}
-        </div>
-    </div>
+                    <div>
+                        {gameDropdown()}
+                    </div>
+                </div>
+
+                <div className="decorations">
+                    <img className="decorative-image" src = "https://cdn.mos.cms.futurecdn.net/8gWTFzyHLQXnTGiVhRLeea.jpg" ></img>
+                    <img className="decorative-image" src = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/11170746/ada472b27af1bb9e90ec8937b3c5b3ddf6209cb4_400x225.png" ></img>
+                    <img className="decorative-image" src = "https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1635269541" ></img>
+                    <img className="decorative-image" src = "https://progameguides.com/wp-content/uploads/2021/09/Featured-Best-Factions-for-Beginners-in-Warhammer-Total-War-2.jpg" ></img>
+                </div>
+                
+                <div id="game-card-display">
+                    {myAPIResult.map((gamecard_prop,index) => (
+                    <GameCard {...gamecard_prop} key={index} />
+                    ))}
+                </div>
+            </div>
 }
 
 export default SearchBar;
