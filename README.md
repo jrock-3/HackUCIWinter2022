@@ -1,6 +1,5 @@
 # Running this Application's Server Side
-Download flask to run the backend 
-Then
+Download flask to run the backend Then  
 set FLASK_APP=app.py
 
 flask run
@@ -8,10 +7,10 @@ flask run
 This will run the flask application.
 Once this is done we will run the ngrok application.
 
-For mac:
+For mac:  
 ./ngrok http 5000
 
-For windows (powershell/cmd):
+For windows (powershell/cmd):  
 ./ngrok.exe http 5000
 
 Copy the link in the ngrok terminal and paste it into the FetchInfo.js in client/src part of the project.
