@@ -13,7 +13,7 @@ function GameCard(props) {
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
-        <div className="game-player-count">Current Number of Players: {props.total_players} </div>
+        <div className="game-player-count">Online Players: {props.total_players} </div>
         {/* <div id="game-ratings">
           put ratings here
         </div> */}
