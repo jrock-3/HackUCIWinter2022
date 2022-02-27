@@ -76,7 +76,7 @@ function SearchGame(props){
     return <div className="search-box">
         <h1>Search for games</h1>
         
-        <form onSubmit={handleSubmit}>
+        <form autoComplete="off" onSubmit={handleSubmit}>
             <div align='center' className="dropdown">
                 <i className="material-icons">search</i>
                 <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
