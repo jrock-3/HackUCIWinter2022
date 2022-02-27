@@ -70,11 +70,22 @@ function SearchBar(props){
     const handleRemove= (event)=>{
         console.log(event.target.className)
         console.log(gameids[event.target.className])
+        setMyInput('');
         setGames(userGames.filter((element)=>{
             console.log(element)
             return element !== gameids[event.target.className]}))
         setMyAPIResult(myAPIResult.filter((element)=>{return event.target.className !==element.title }))
         console.log(userGames)
+    }
+
+    const sortAlphabetically = (event)=>{
+        setMyAPIResult([...myAPIResult].sort((a, b) => a.title.localeCompare(b.title)))
+    }
+
+    const sortRating = (event)=>{
+        console.log(myAPIResult)
+        setMyAPIResult([...myAPIResult].sort((a, b) => (b.pos_reviews/(b.pos_reviews + b.neg_reviews)) - (a.pos_reviews/(a.pos_reviews + a.neg_reviews))))
+
     }
 
 
@@ -117,8 +128,8 @@ function SearchBar(props){
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
-                    <img src={alphabetIcon} className="imageIcons"/>
-                    <img src={ratingIcon} className="imageIcons" />
+                    <img src={alphabetIcon} onClick={sortAlphabetically} className="imageIcons"/>
+                    <img src={ratingIcon} onClick={sortRating} className="imageIcons" />
 
 
                 </div>
