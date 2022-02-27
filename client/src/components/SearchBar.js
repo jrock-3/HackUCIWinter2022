@@ -37,6 +37,8 @@ function SearchBar(props){
 	}, [myInput, setMyAPIResult]);
 
 
+
+
     const handleGame = async (event)=>{
         setSearch(event.target.value)
     }
@@ -60,16 +62,22 @@ function SearchBar(props){
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
+            
             setMyInput(gameids[event.target.id]);
         }
         setGamelist([])
         setSearch('')
-        // console.log(userGames)
+        
+        console.log(userGames)
     }
 
     const handleRemove= (event)=>{
         console.log(event.target.className)
         console.log(gameids[event.target.className])
+        setMyInput('');
+        setGames(userGames.filter((element)=>{
+            console.log(element)
+            return element !== gameids[event.target.className]}))
         setGames(userGames.filter((element)=>{
             console.log(element)
             return element !== gameids[event.target.className]}))
@@ -100,6 +108,8 @@ function SearchBar(props){
     }
 
     console.log(myAPIResult)
+    console.log(userGames)
+    console.log(myInput)
     return <div className = "website">
                 <div className="title-and-icon">
                     <img id="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png" ></img>
@@ -124,7 +134,7 @@ function SearchBar(props){
                 <div className="search-box">
                     <form autoComplete="off" onSubmit={handleSubmit}>
                         <div align='center' className="dropdown">
-                            <i className="material-icons">search</i>
+                            <button className="material-icons" onClick={handleSubmit} >search</button>
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
@@ -132,10 +142,10 @@ function SearchBar(props){
                     <img src={ratingIcon} onClick={sortRating} className="imageIcons" />
 
 
-                    <div>
-                        {gameDropdown()}
-                    </div>
+                </div>
 
+                <div>
+                    {gameDropdown()}
                 </div>
 
                 
