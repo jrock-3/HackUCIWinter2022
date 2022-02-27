@@ -7,7 +7,7 @@ import FetchInfo from '../FetchInfo.js';
 
 
 const games_list= Object.keys(gameids);//["counter strike:global offensive","CS", "a"];
-const options={};
+const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
 let choices = []
