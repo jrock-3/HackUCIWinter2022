@@ -1,4 +1,5 @@
 import './GameCard.css'
+import newsIcon from '../images/newsIcon.png'
 import deleteIcon from '../images/deleteIcon.png'
 
 function GameCard(props) {
@@ -10,6 +11,7 @@ function GameCard(props) {
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
       <img src = {deleteIcon} id="delete-button" />
+      <img src = {newsIcon} id="news-button" />
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
@@ -21,10 +23,8 @@ function GameCard(props) {
           <div className="rating-box1" style={{width: percent_pos + "%"}}></div>
           <div className="rating-box2" style={{width: percent_neg + '%'}}></div>
         </div>
-        <div className="ratings">
-          <p>Positive Ratings:<br />{percent_pos+"%"}</p>
-          <p>Negative Ratings:<br />{percent_neg+"%"}</p>
-        </div>
+        <span class="right">Negative: {percent_neg+"%"}</span><span class="left">Positive: {percent_pos+"%"}</span>​
+        
       </div>
       {/* <a href={props.news_link}><p className="game-news-link">News</p></a> */}
     </div>

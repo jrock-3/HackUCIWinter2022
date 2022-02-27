@@ -28,6 +28,25 @@
 
 }
 
+#news-button {
+    position: absolute;
+    top: 5;
+    left: 0;
+    width: 10%;
+    margin-left: 3%;
+    margin-top: 3%;
+
+}
+
+.right{
+    float:right;
+    font-size: 80%;
+}
+
+.left{
+    float:left;
+    font-size: 80%;
+}
 
 
 .game-card:hover {
