@@ -4,6 +4,7 @@ import SearchGame from './components/Search_query.js';
 import FetchInfo from './FetchInfo.js';
 import { useState,useEffect } from "react";
 import FetchIds from './FetchIds.js';
+import gameids from './new_json.json';
 // import ReactDOM from 'react-dom';
 
 
@@ -25,8 +26,7 @@ function App() {
     setProps(gamecard_props.concat(x))
   }
 
-  // let x = FetchIds();
-  // console.log(x);
+  console.log(gameids['Terraria'])
   
   console.log(gamecard_props)
 

@@ -1,23 +1,18 @@
-function FetchIds() {
-    let output = {}
 
-    let baseUrl = "http://24be-169-234-11-146.ngrok.io";
-    let gameIds_url = baseUrl + "/gameId";
-
-    async function fetchData() {
-        const gameIdsResponse = await fetch(gameIds_url);
-        const gameIdsJSON = await gameIdsResponse.json();
-        const ids = gameIdsJSON.applist;
-        console.log(ids);
-
-        output.ids = ids;
-
-        console.log(output)
-    }
-    fetchData();
-
-    return output;
+async function FetchIds() {
+fetch('../server/new_json.json',{
+        headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    })
+    .then(function(response){
+    console.log(response)
+    return response.json();
+    })
+    .then(function(myJson) {
+    console.log(myJson);
+    });
 }
 
 export default FetchIds;
-  
