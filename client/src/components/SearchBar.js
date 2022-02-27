@@ -118,6 +118,9 @@ function SearchBar(props){
                     <div>
                         {gameDropdown()}
                     </div>
+
+                    <p>test</p>
+
                 </div>
 
                 
