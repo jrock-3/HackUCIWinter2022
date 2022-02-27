@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import "./Search_query.css";
 import GameCard from './GameCard.js';
@@ -29,12 +29,6 @@ function SearchGame(props){
         // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
     }
 
-    // setProps([thing,thing,thing])
-
-    async function handleClick(props) {
-        const x = await FetchInfo(props)
-        setProps(gamecard_props.concat(x))
-    }
 
     const handleGame=(event)=>{
         setSearch(event.target.value)
@@ -54,12 +48,15 @@ function SearchGame(props){
         setSearch('')
     }
 
-    const handleAdd=(event)=>{
+    const handleAdd= async (event) => {
         event.preventDefault()
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
-            handleClick({id:gameids[event.target.id]})
+            // handleClick({id:gameids[event.target.id]})
+            const x = await FetchInfo({id:gameids[event.target.id]})
+            setProps(gamecard_props.concat(x))
+            console.log(x)
         }
         choices = userGames;
         setGamelist([])
@@ -107,3 +104,33 @@ function SearchGame(props){
 
 export let games = choices;
 export default SearchGame;
+
+/*
+import React, { useState, useEffect } from 'react';
+
+const Comp = () => {
+	const [myInput, setMyInput] = useState('');
+	const [myAPIResult, setMyAPIResult] = useState([]);
+	
+	useEffect(() => {
+		const fetchData = async () => {
+			// get data here
+			const json = await response.json();
+
+		    // set state with the result
+		    setMyAPIResult(json);
+		}
+	  // call the function, catch errors
+	  fetchData()
+	    .catch(console.error);
+	}, [myInput]);
+
+	const handleClick = () => {
+		setMyInput(// pass in data here);
+	}
+
+	return {
+		<button onClick={handleClick}> my button </button>
+	}
+}
+*/
