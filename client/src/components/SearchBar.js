@@ -4,6 +4,7 @@ import "./Search_query.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
+// import date from 'date';
 
 
 const games_list= Object.keys(gameids);
@@ -17,6 +18,7 @@ function SearchBar(props){
 
     const [myInput, setMyInput] = useState('');
 	const [myAPIResult, setMyAPIResult] = useState([]);
+    // const [currTime, setCurrTime] = useState(Date())
 
     useEffect(() => {
 		const fetchData = async () => {
