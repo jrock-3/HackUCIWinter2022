@@ -19,10 +19,8 @@ function GameCard(props) {
           <div className="rating-box1" style={{width: percent_pos + "%"}}></div>
           <div className="rating-box2" style={{width: percent_neg + '%'}}></div>
         </div>
-        <div className="ratings">
-          <p>Positive Ratings:<br />{percent_pos+"%"}</p>
-          <p>Negative Ratings:<br />{percent_neg+"%"}</p>
-        </div>
+
+        <span class="left">Positive: {percent_pos+"%"}</span><span class="right">Negative: {percent_neg+"%"}</span>​
       </div>
     </div>
   );
