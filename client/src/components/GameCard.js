@@ -10,8 +10,8 @@ function GameCard(props) {
   return (
     <div className="game-card">
       <img src={props.img} className="game-img" alt={"Image of " + props.title} />
-      <img src = {deleteIcon} id="delete-button" />
       <img src = {newsIcon} id="news-button" />
+      <img src = {deleteIcon} id="delete-button" onClick={props.onClick} className={props.title}/>
       <div className="bottom-card">
         <div className="game-name">{props.title}</div>
         <div className="dev-name">Developer: {props.dev_name}</div>
