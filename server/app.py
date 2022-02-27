@@ -11,10 +11,10 @@ CORS(app)
 def index():
     return jsonify({'message': 'Hey, everything works!!'})
 
-# Access this endpoint through: http://localhost:5000/gameInfo/<id>
+# Access this endpoint through: http://localhost:5000/gameId/
 @app.route('/gameId')
 def gameId():
-    url = "http://api.steampowered.com/ISteamApps/GetAppList/v0002/?key=STEAMKEY&format=json"
+    url = "http://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json"
 
     response = requests.request(
         "GET", url)
