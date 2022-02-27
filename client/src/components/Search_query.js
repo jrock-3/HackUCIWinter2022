@@ -3,7 +3,14 @@ import Fuse from 'fuse.js';
 import "./Search_query.css";
 
 
+<<<<<<< HEAD
+const games_list=["counter strike:global offensive","CS", "a"];
+=======
+//SET THIS TO FETCHID OUTPUT
 const games_list=["counter strike:global offensive","CS"];
+
+
+>>>>>>> 095c69d286ed514c32c733a1f65ee49046b1c936
 const options={};
 const fuse= new Fuse(games_list,options)
 
@@ -16,7 +23,7 @@ function SearchGame(props){
         setSearch(event.target.value)
     }
     const handleSubmit=(event)=>{
-        //SsetGamelist([])
+        //setGamelist([])
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -39,28 +46,32 @@ function SearchGame(props){
         {console.log(userGames)}
     }
 
+<<<<<<< HEAD
      function gameDropdown(){
+        return <ul align='center'  className="dropdown-content">
+=======
+    function gameDropdown(){
         return <ul  className="dropdown-content">
+>>>>>>> 095c69d286ed514c32c733a1f65ee49046b1c936
             {possibleGames.map((posGame)=>{
             if (posGame.item!="No game found"){
                 return <li key= {posGame.item} id={posGame.item} onClick={handleAdd}>{posGame.item}</li>
             }else{
-                 return <li key={posGame.item}>No game Found</li>
+                    return <li key={posGame.item}>No game Found</li>
             }}) }</ul>
-        }
+    }
 
 
-    return <div className="dropdown">
+    return <div className="search-box">
         <h1>Search for games</h1>
         
         <form onSubmit={handleSubmit}>
-            <label>Enter favorite Games</label>
-            <div className="dropdown">
-            <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input>
-            {gameDropdown()}
+            <div align='center' className="dropdown">
+                <i className="material-icons">search</i>
+                <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
             </div>
-            
         </form>
+        {gameDropdown()}
         
         <div className='games'>
             {console.log(userGames)}
