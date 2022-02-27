@@ -18,7 +18,7 @@ function App() {
     pos_reviews: 23831,
     neg_reviews: 836,
     news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
-  },
+  }
   );
 
   // console.log(gamecard_props)
