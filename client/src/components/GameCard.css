@@ -7,6 +7,7 @@
     background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column;
+    transition: transform .2s; /* Animation */
 }
 
 .bottom-card {
@@ -15,6 +16,11 @@
 
 
 
+
+.game-card:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  
 
 .game-img {
     border-top-left-radius: 25px;
