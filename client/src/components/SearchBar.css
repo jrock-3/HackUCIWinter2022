@@ -1,12 +1,35 @@
-
-
-
-.search-box h1{
-  text-align: center;
-  font-size: 72px;
-  color: white;
-  -webkit-text-stroke: 3px black;
+.website{
+  display: flex;
+  flex-direction: column;
 }
+
+/* Top of website */
+.title-and-icon{
+  display: flex;
+  flex-direction: row;
+  background-color: #020118;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+}
+
+#icon{
+  height: 5%;
+  width: 5%;
+
+}
+
+#title{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+
 
 .search-box {
   width:100vw;
@@ -15,7 +38,12 @@
   display: flex;
   flex-direction: column;
   font-size: 16px;
+  background-color: #090b3a;
+  gap: 30%;
+  min-height:100px;
+  justify-content: center;
 }
+
 
 #myInput {
   box-sizing: border-box;
@@ -27,20 +55,38 @@
   border-bottom: 1px solid #ddd;
 }
 
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
 
 .dropdown i{
   transform: translateY(8px);
 }
 
-.dropdown input{
-  width: 25vw;;
-  height: 4vw;;
-  font-size: 20px;
-  text-align: center;
+.material-icons { 
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  height: 25%;
+  width: 5%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+
 }
 
-.dropdown-content {
-  font-size: 16px;
+
+.dropdown input{ /* search box */
+  width: 60vw;;
+  height: 3vw;;
+  font-size: 20px;
+  text-align: center;
+  border: 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+  border-radius: 25px;
+}
+
+.dropdown-content { /* box inside search bar*/
+  font-size: 20px;
   margin:0;
   align-items: center;
   background-color: #f6f6f6;
@@ -68,7 +114,7 @@
   background: purple;
   display: block;
   float: left;
-  width:100%;
+  width:30vw;
   padding: 1rem;
   margin-left: 0;
   position: relative;
@@ -81,15 +127,16 @@
 }
 
 .dropdown-content li:hover {
-  background: blue;
+  background: rgb(145, 145, 224);
   cursor: pointer;
 }
 
 .dropdown-content ul li ul {
-  background: royalblue;
+  background: rgb(80, 118, 231);
   visibility: hidden;
   opacity: 0;
   min-width: 5rem;
+  max-width: 30vw;;
   position: absolute;
   transition: all 0.5s ease;
   margin-top: 1rem;
@@ -109,8 +156,32 @@
   width: 100%;
 }
 
+
+
+
+.decorations {
+  display: flex;
+  flex-direction: row;
+  gap: 0%;
+
+}
+
+.decorative-image{
+  width: 25%;
+}
+
+
+
+
+
+
+/* Bottom of website */
+
 #game-card-display{
+  object-fit: cover;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10vw;
+  background-color: #d3d3d3;
+  min-height: 300px;
 }
