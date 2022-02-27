@@ -26,17 +26,18 @@ function SearchGame(props){
 		const fetchData = async () => {
 			// get data here
 			const _info = await FetchInfo({id:myInput});
-            const _json = await _info.json();
+            // console.log(_info)
+            // const _json = await _info.json();
 
 		    // set state with the result
-		    setMyAPIResult(...myAPIResult,_json);
+		    setMyAPIResult([...myAPIResult,_info]);
 		}
 	    // call the function, catch errors
         if(myInput !== '') {
             fetchData()
             .catch(console.error);
         }
-	}, [myAPIResult, myInput]);
+	}, [myInput]);
 
     //!!!!!!!!!!!!!!!!!!!!!
 
@@ -91,7 +92,7 @@ function SearchGame(props){
             }}) }</ul>
     }
 
-
+    console.log(myAPIResult)
     return <div className="search-box">
         <h1>Search for games</h1>
         
