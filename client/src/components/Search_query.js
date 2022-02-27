@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Fuse from 'fuse.js';
 import "./Search_query.css";
-// import GameCard from './GameCard.js';
+import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
+import FetchInfo from '../FetchInfo.js';
 
 
 const games_list= Object.keys(gameids);//["counter strike:global offensive","CS", "a"];
@@ -15,6 +16,25 @@ function SearchGame(props){
     const [games, setSearch]=useState('')
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
+
+    const [gamecard_props, setProps] = useState([])
+
+    let thing = {
+        title: "Team Fortress 2",
+        img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
+        dev_name: "Valve",
+        total_players: 73612,
+        pos_reviews: 23831,
+        neg_reviews: 836,
+        // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
+    }
+
+    // setProps([thing,thing,thing])
+
+    async function handleClick(props) {
+        const x = await FetchInfo(props)
+        setProps(gamecard_props.concat(x))
+    }
 
     const handleGame=(event)=>{
         setSearch(event.target.value)
@@ -39,8 +59,10 @@ function SearchGame(props){
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
+            handleClick({id:gameids[event.target.id]})
         }
         choices = userGames;
+        setGamelist([])
         // console.log(userGames)
     }
 
@@ -73,7 +95,13 @@ function SearchGame(props){
                 <p key={usGame}>{usGame}</p>
             )}
         </div> */}
-        
+        <div id="game-card-display">
+        <GameCard {...thing} />
+            {gamecard_props.map((gamecard_prop,index) => (
+            //add "loading..." here vvv
+            <GameCard {...gamecard_prop} key={index} />
+            ))}
+        </div>
     </div>
 }
 

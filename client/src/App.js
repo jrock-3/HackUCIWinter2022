@@ -4,7 +4,7 @@ import SearchGame from './components/Search_query.js';
 import FetchInfo from './FetchInfo.js';
 import { useState,useEffect } from "react";
 // import FetchIds from './FetchIds.js';
-// import gameids from './new_json.json';
+import gameids from './new_json.json';
 // import ReactDOM from 'react-dom';
 import games from './components/Search_query.js';
 
@@ -31,6 +31,7 @@ function App() {
 
   // console.log(Object.keys(gameids))
   
+  console.log(gameids['Dyson Sphere Program'])
   console.log(gamecard_props)
 
   return (
@@ -44,13 +45,13 @@ function App() {
         </form>
         <button onClick={() => handleClick({id: document.getElementById('test').value})}>Click</button>
       </div>
-      <div id="game-card-display">
+      {/* <div id="game-card-display">
         <GameCard {...thing} />
         {gamecard_props.map((gamecard_prop,index) => (
           //add "loading..." here vvv
           <GameCard {...gamecard_prop} key={index} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
