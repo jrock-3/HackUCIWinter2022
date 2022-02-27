@@ -13,9 +13,11 @@
     transition: transform .2s; /* Animation */
     position:relative;
     flex-wrap: flex;
+    padding-bottom: 10%;
 }
 
 .bottom-card {
+    padding-right: 5%;
     padding-left: 5%;
 }
 

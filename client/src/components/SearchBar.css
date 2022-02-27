@@ -7,10 +7,11 @@
 .title-and-icon{
   display: flex;
   flex-direction: row;
-  background-color: #020118;
+  background-color: #080629;
   align-items: center;
   justify-content: center;
-  gap: 3%;
+  gap: 2%;
+  background-image: url("https://renfrewshireastro.co.uk/wp-content/uploads/2017/08/cropped-starry-header.png");
 }
 
 #icon{
@@ -24,6 +25,7 @@
   font-size: 40px;
   font-weight: 900;
   color: rgb(255, 255, 255);
+  font-family: 'Catamaran', sans-serif;
 }
 
 
@@ -38,7 +40,7 @@
   display: flex;
   flex-direction: column;
   font-size: 16px;
-  background-color: #090b3a;
+  background-color: #080a4d;
   gap: 30%;
   min-height:100px;
   justify-content: center;
@@ -167,7 +169,7 @@
 }
 
 .decorative-image{
-  width: 25%;
+  width: 10%;
 }
 
 
@@ -182,6 +184,5 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10vw;
-  background-color: #d3d3d3;
-  min-height: 300px;
+  background-color: #f2e2df;
 }
