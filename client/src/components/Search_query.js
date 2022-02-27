@@ -3,7 +3,7 @@ import Fuse from 'fuse.js';
 import "./Search_query.css";
 
 
-const games_list=["counter strike:global offensive","CS"];
+const games_list=["counter strike:global offensive","CS", "a"];
 const options={};
 const fuse= new Fuse(games_list,options)
 
@@ -40,7 +40,7 @@ function SearchGame(props){
     }
 
      function gameDropdown(){
-        return <ul  className="dropdown-content">
+        return <ul align='center'  className="dropdown-content">
             {possibleGames.map((posGame)=>{
             if (posGame.item!="No game found"){
                 return <li key= {posGame.item} id={posGame.item} onClick={handleAdd}>{posGame.item}</li>
@@ -50,17 +50,16 @@ function SearchGame(props){
         }
 
 
-    return <div className="dropdown">
+    return <div className="search-box">
         <h1>Search for games</h1>
         
         <form onSubmit={handleSubmit}>
-            <label>Enter favorite Games</label>
-            <div className="dropdown">
-            <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input>
-            {gameDropdown()}
+            <div align='center' className="dropdown">
+                <i className="material-icons">search</i>
+                <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
             </div>
-            
         </form>
+        {gameDropdown()}
         
         <div className='games'>
             {console.log(userGames)}
