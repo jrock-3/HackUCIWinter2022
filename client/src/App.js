@@ -22,6 +22,8 @@ function App() {
     // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
   }
 
+  // setProps([thing,thing,thing])
+
   async function handleClick(props) {
     const x = await FetchInfo(props)
     setProps(gamecard_props.concat(x))
@@ -43,6 +45,7 @@ function App() {
         <button onClick={() => handleClick({id: document.getElementById('test').value})}>Click</button>
       </div>
       <div id="game-card-display">
+        <GameCard {...thing} />
         {gamecard_props.map((gamecard_prop,index) => (
           //add "loading..." here vvv
           <GameCard {...gamecard_prop} key={index} />
