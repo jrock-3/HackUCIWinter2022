@@ -39,7 +39,6 @@
   transform: translateY(8px);
 }
 
-<<<<<<< HEAD
 .material-icons { 
   background-color: rgb(255, 255, 255);
   border-radius: 100%;
@@ -53,11 +52,6 @@
 .dropdown input{ /* search box */
   width: 30vw;;
   height: 3vw;;
-=======
-.dropdown input{
-  width: 25vw;;
-  height: 4vw;;
->>>>>>> ef73e2bb5bb39b9c33ad4aa999788e29f2bf9ecb
   font-size: 20px;
   text-align: center;
   border: 0;
