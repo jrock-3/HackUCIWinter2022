@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Fuse from 'fuse.js';
 import "./Search_query.css";
+// import GameCard from './GameCard.js';
+import gameids from '../new_json.json';
 
 
-const games_list=["counter strike:global offensive","CS", "a"];
+const games_list= Object.keys(gameids);//["counter strike:global offensive","CS", "a"];
 const options={};
 const fuse= new Fuse(games_list,options)
+
+let choices = []
 
 function SearchGame(props){
     const [games, setSearch]=useState('')
@@ -32,11 +36,12 @@ function SearchGame(props){
 
     const handleAdd=(event)=>{
         event.preventDefault()
-        {console.log(event.target.id)}
+        // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
-            setGames([...userGames,event.target.id])
+            setGames([...userGames,gameids[event.target.id]])
         }
-        {console.log(userGames)}
+        choices = userGames;
+        // console.log(userGames)
     }
 
      function gameDropdown(){
@@ -61,14 +66,16 @@ function SearchGame(props){
         </form>
         {gameDropdown()}
         
-        <div className='games'>
+        {/* <div className='games'>
             {console.log(userGames)}
             {userGames.map((usGame)=>
+                // <GameCard {...} />
                 <p key={usGame}>{usGame}</p>
             )}
-        </div>
-
+        </div> */}
+        
     </div>
 }
 
+export let games = choices;
 export default SearchGame;

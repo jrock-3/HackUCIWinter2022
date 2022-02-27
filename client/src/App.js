@@ -3,9 +3,10 @@ import GameCard from './components/GameCard.js';
 import SearchGame from './components/Search_query.js';
 import FetchInfo from './FetchInfo.js';
 import { useState,useEffect } from "react";
-import FetchIds from './FetchIds.js';
-import gameids from './new_json.json';
+// import FetchIds from './FetchIds.js';
+// import gameids from './new_json.json';
 // import ReactDOM from 'react-dom';
+import games from './components/Search_query.js';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
     total_players: 73612,
     pos_reviews: 23831,
     neg_reviews: 836,
-    news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
+    // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
   }
 
   async function handleClick(props) {
@@ -26,7 +27,7 @@ function App() {
     setProps(gamecard_props.concat(x))
   }
 
-  console.log(gameids['Terraria'])
+  // console.log(Object.keys(gameids))
   
   console.log(gamecard_props)
 
@@ -46,7 +47,7 @@ function App() {
           //add "loading..." here vvv
           <GameCard {...gamecard_prop} key={index} />
         ))}
-        </div>
+      </div>
     </div>
   );
 }
