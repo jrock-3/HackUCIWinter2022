@@ -30,19 +30,12 @@ function SearchBar(props){
         if(myInput !== '') {
             fetchData()
             .catch(console.error);
-        }
+        } 
 	}, [myInput]);
 
 
     const handleGame = async (event)=>{
         setSearch(event.target.value)
-        // const currTime = (new Date()).getTime()
-        // const x = 300;
-        // if(currTime - lastTime >= x) {
-        //     setLastTime(currTime)
-        //     handleInput(event)
-        // }
-        // setLastTime(currTime)
     }
     const handleSubmit = (event) => {
         // console.log('finding')
