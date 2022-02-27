@@ -123,7 +123,7 @@ function SearchBar(props){
                 
                 <div id="game-card-display">
                     {myAPIResult.map((gamecard_prop,index) => (
-                    <GameCard {...gamecard_prop} key={index} onclick = {handleRemove}/>
+                    <GameCard {...gamecard_prop} key={index} handleRemove={handleRemove}/>
                     ))}
                 </div>
             </div>
