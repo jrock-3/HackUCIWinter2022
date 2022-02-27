@@ -34,7 +34,7 @@ function SearchBar(props){
             fetchData()
             .catch(console.error);
         } 
-	}, [myInput]);
+	}, [myInput, setMyAPIResult]);
 
 
     const handleGame = async (event)=>{
@@ -77,6 +77,17 @@ function SearchBar(props){
         console.log(userGames)
     }
 
+    const sortAlphabetically = (event)=>{
+        setMyAPIResult([...myAPIResult].sort((a, b) => a.title.localeCompare(b.title)))
+    }
+
+    const sortRating = (event)=>{
+        console.log(myAPIResult)
+        setMyAPIResult([...myAPIResult].sort((a, b) => (b.pos_reviews/(b.pos_reviews + b.neg_reviews)) - (a.pos_reviews/(a.pos_reviews + a.neg_reviews))))
+
+    }
+
+
 
      function gameDropdown(){
         return <ul align='center'  className="dropdown-content">
@@ -117,8 +128,8 @@ function SearchBar(props){
                             <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
                         </div>
                     </form>
-                    <img src={alphabetIcon} className="imageIcons"/>
-                    <img src={ratingIcon} className="imageIcons" />
+                    <img src={alphabetIcon} onClick={sortAlphabetically} className="imageIcons"/>
+                    <img src={ratingIcon} onClick={sortRating} className="imageIcons" />
 
 
                     <div>
