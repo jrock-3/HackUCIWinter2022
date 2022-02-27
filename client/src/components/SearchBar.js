@@ -6,6 +6,7 @@ import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
 
 const games_list= Object.keys(gameids);
+console.log(gameids)
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
@@ -52,6 +53,7 @@ function SearchBar(props){
 
     const handleAdd= async (event) => {
         event.preventDefault()
+        console.log(userGames)
         // console.log(event.target.id + " " + gameids[event.target.id])
         if (!userGames.includes(event.target.id)){
             setGames([...userGames,gameids[event.target.id]])
@@ -64,7 +66,12 @@ function SearchBar(props){
 
     const handleRemove= (event)=>{
         console.log(event.target.className)
+        console.log(gameids[event.target.className])
+        setGames(userGames.filter((element)=>{
+            console.log(element)
+            return element !== gameids[event.target.className]}))
         setMyAPIResult(myAPIResult.filter((element)=>{return event.target.className !==element.title }))
+        console.log(userGames)
     }
 
 
