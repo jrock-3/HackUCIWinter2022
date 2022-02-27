@@ -41,11 +41,15 @@
 .right{
     float:right;
     font-size: 80%;
+    font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
+
 }
 
 .left{
     float:left;
     font-size: 80%;
+    font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
+
 }
 
 
@@ -67,7 +71,7 @@
     font-weight: 1000;
     text-align: center;
     order: 1;
-    font-size: 150%;
+    font-size: 200%;
     flex-basis: 10%;
 
 }
@@ -76,7 +80,7 @@
 .dev-name {
     font-family: MD Primer Bold,Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
     text-align: center;
-    font-size: 120%;
+    font-size: 90%;
     order: 2;
 }
 
@@ -85,6 +89,8 @@
     text-align: center;
     font-size: 120%;
     order: 3;
+    margin-bottom: 5%;
+    font-weight: bold;
 }
 
 /* #game-ratings {
@@ -103,7 +109,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    transform: scale(1.1, 2.3)
+    transform: scale(1.12, 3)
 }
 
 .rating-box > .rating-box-text {
