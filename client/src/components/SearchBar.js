@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
-import "./Search_query.css";
+import "./SearchBar.css";
 import GameCard from './GameCard.js';
 import gameids from '../new_json.json';
 import FetchInfo from '../FetchInfo.js';
+// import date from 'date';
 
 
-const games_list= Object.keys(gameids);//["counter strike:global offensive","CS", "a"];
+const games_list= Object.keys(gameids);
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
-let choices = []
-
-function SearchGame(props){
+function SearchBar(props){
     const [games, setSearch]=useState('')
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
 
-    //!!!!!!!!!!!!!!!!!!!!!
-
     const [myInput, setMyInput] = useState('');
 	const [myAPIResult, setMyAPIResult] = useState([]);
+    // const [currTime, setCurrTime] = useState(Date())
 
     useEffect(() => {
 		const fetchData = async () => {
 			// get data here
 			const _info = await FetchInfo({id:myInput});
-            // console.log(_info)
-            // const _json = await _info.json();
 
 		    // set state with the result
 		    setMyAPIResult([...myAPIResult,_info]);
@@ -39,24 +35,12 @@ function SearchGame(props){
         }
 	}, [myInput]);
 
-    //!!!!!!!!!!!!!!!!!!!!!
 
-    let thing = {
-        title: "Team Fortress 2",
-        img: "https://cdn.akamai.steamstatic.com/steam/apps/440/header.jpg?t=1592263852",
-        dev_name: "Valve",
-        total_players: 73612,
-        pos_reviews: 23831,
-        neg_reviews: 836,
-        // news_link: "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4235075565596422445",
-    }
-
-
-    const handleGame=(event)=>{
+    const handleGame= async (event)=>{
         setSearch(event.target.value)
+        await handleInput(event)
     }
-    const handleSubmit=(event)=>{
-        //setGamelist([])
+    const handleInput = (event) => {
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -67,6 +51,9 @@ function SearchGame(props){
             setGamelist([{item:"No game found"}])
         }
         // console.log(possibleGames)
+    }
+    const handleSubmit=(event)=>{
+        handleInput(event)
         setSearch('')
     }
 
@@ -77,7 +64,6 @@ function SearchGame(props){
             setGames([...userGames,gameids[event.target.id]])
             setMyInput(gameids[event.target.id]);
         }
-        choices = userGames;
         setGamelist([])
         // console.log(userGames)
     }
@@ -102,21 +88,17 @@ function SearchGame(props){
     return <div className="search-box">
         <h1>Search for games</h1>
         
-        <form onSubmit={handleSubmit}>
+        <form autoComplete="off" onSubmit={handleSubmit}>
             <div align='center' className="dropdown">
                 <i className="material-icons">search</i>
                 <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
             </div>
         </form>
-        {gameDropdown()}
+
+        <div>
+            {gameDropdown()}
+        </div>
         
-        {/* <div className='games'>
-            {console.log(userGames)}
-            {userGames.map((usGame)=>
-                // <GameCard {...} />
-                <p key={usGame}>{usGame}</p>
-            )}
-        </div> */}
         <div id="game-card-display">
             {console.log(myAPIResult)}
         {/* <GameCard {...thing} /> */}
@@ -128,35 +110,4 @@ function SearchGame(props){
     </div>
 }
 
-export let games = choices;
-export default SearchGame;
-
-/*
-import React, { useState, useEffect } from 'react';
-
-const Comp = () => {
-	const [myInput, setMyInput] = useState('');
-	const [myAPIResult, setMyAPIResult] = useState([]);
-	
-	useEffect(() => {
-		const fetchData = async () => {
-			// get data here
-			const json = await response.json();
-
-		    // set state with the result
-		    setMyAPIResult(json);
-		}
-	  // call the function, catch errors
-	  fetchData()
-	    .catch(console.error);
-	}, [myInput]);
-
-	const handleClick = () => {
-		setMyInput(// pass in data here);
-	}
-
-	return {
-		<button onClick={handleClick}> my button </button>
-	}
-}
-*/
+export default SearchBar;
