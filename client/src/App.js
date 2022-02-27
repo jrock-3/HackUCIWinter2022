@@ -39,12 +39,12 @@ function App() {
       <div>
         <SearchGame />
       </div>
-      <div>
+      {/* <div>
         <form>
           <input type="text" id="test" />
         </form>
         <button onClick={() => handleClick({id: document.getElementById('test').value})}>Click</button>
-      </div>
+      </div> */}
       {/* <div id="game-card-display">
         <GameCard {...thing} />
         {gamecard_props.map((gamecard_prop,index) => (
