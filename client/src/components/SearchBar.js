@@ -10,7 +10,7 @@ const games_list= Object.keys(gameids);
 const options={distance:50,findAllMatches:true,limit:5};
 const fuse= new Fuse(games_list,options)
 
-function SearchGame(props){
+function SearchBar(props){
     const [games, setSearch]=useState('')
     const [possibleGames, setGamelist]=useState([])
     const [userGames, setGames]=useState([])
@@ -34,10 +34,11 @@ function SearchGame(props){
 	}, [myInput]);
 
 
-    const handleGame=(event)=>{
+    const handleGame= async (event)=>{
         setSearch(event.target.value)
+        await handleInput(event)
     }
-    const handleSubmit=(event)=>{
+    const handleInput = (event) => {
         event.preventDefault()
         const similarGames= fuse.search(games,options)
         //console.log(similarGames)
@@ -48,6 +49,9 @@ function SearchGame(props){
             setGamelist([{item:"No game found"}])
         }
         // console.log(possibleGames)
+    }
+    const handleSubmit=(event)=>{
+        handleInput(event)
         setSearch('')
     }
 
@@ -82,7 +86,10 @@ function SearchGame(props){
                 <input type='text' value={games}  placeholder ='Search..' onChange={handleGame} id="my-input"></input> 
             </div>
         </form>
-        {gameDropdown()}
+
+        <div>
+            {gameDropdown()}
+        </div>
         
         <div id="game-card-display">
             {myAPIResult.map((gamecard_prop,index) => (
@@ -92,4 +99,4 @@ function SearchGame(props){
     </div>
 }
 
-export default SearchGame;
+export default SearchBar;

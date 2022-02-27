@@ -1,5 +1,5 @@
 import './App.css';
-import SearchGame from './components/Search_query.js';
+import SearchBar from './components/SearchBar.js';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <div>
-        <SearchGame />
+        <SearchBar />
       </div>
     </div>
   );
